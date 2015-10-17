@@ -1,0 +1,80 @@
+body {
+  background-color: #f0f3f4;
+  width: 100%;
+}
+
+li.active a{
+  color: white;
+}
+
+.left {
+  position: fixed;
+  height: 100%;
+  width: 12.5%;
+  background-color: black;
+}
+
+.right {
+  float: right;
+}
+
+.my-navbar-brand {
+  padding: 0;
+}
+
+.my-navbar-menu {
+  padding: 0;
+  width: 100%;
+  margin-top: 30%;
+}
+
+.my-navbar-menu li {
+  width: 100%;  
+  margin-bottom: -5%;
+}
+
+#submenu {
+  width: 85%;
+  float: right;
+  margin-top: -7%;
+  margin-bottom: 4%;
+}
+
+.my-navbar-menu a {
+  background-color: black !important;
+  width: 100%;
+  color: #737373;
+  font-size: 15px;
+}
+
+.my-navbar-menu a:hover {
+  color: white;
+}
+
+.my-navbar-menu i {
+  padding-right: 6%;
+}
+
+.content-header {
+  height: 5em;
+  background-color: #f6f8f8;
+  border-bottom: 1px solid #cfdadd;
+}
+
+.content-header div {
+  padding-top: 1.2%;
+  padding-left: 1%;
+  font-size: 25px; 
+  color: #404041;
+}
+
+.content-header small {
+  font-size: 14px; 
+  color: #999a9b;
+}
+
+.container {
+  width: 87.5%;
+  float: right;
+  padding: 0;
+}
