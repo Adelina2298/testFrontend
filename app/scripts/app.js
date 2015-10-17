@@ -9,7 +9,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.router'
+    'ui.router',
+    'ngMaterial',
+    'base64'
   ])
   .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     //enable CSRF

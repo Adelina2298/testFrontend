@@ -1,8 +1,12 @@
 body {
   background-color: #f0f3f4;
   width: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 
+/******
+ NAVBAR
+ ******/
 li.active a{
   color: white;
 }
@@ -77,4 +81,104 @@ li.active a{
   width: 87.5%;
   float: right;
   padding: 0;
+}
+
+
+/******
+  LINK2
+ ******/
+ .content-body {
+    width: 100%;
+    padding-top: 3%;
+ }
+
+ .justify {
+    text-align: justify;
+ }
+
+ .no-bullet {
+    list-style-type: none;
+ }
+
+ .text {
+    width: 57%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+ }
+
+ .text li {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    color: #909092;
+ }
+
+ .text > i {
+    font-size: 100px;
+ }
+
+
+
+/******
+  Programs selector
+ ******/
+md-content.autocomplete {
+    min-height: 250px;
+}
+
+.md-item-text.compact {
+    padding-top: 8px;
+    padding-bottom: 8px; 
+}
+
+.program-item {
+    box-sizing: border-box;
+}
+
+.program-item.selected {
+    opacity: 0.5; 
+}
+    
+.program-item.selected h3 {
+    opacity: 0.5; 
+}
+
+.program-item .md-list-item-text {
+    padding: 14px 0; 
+}
+
+.program-item .md-list-item-text h3 {
+    margin: 0 !important;
+    padding: 0;
+    line-height: 1.2em !important;
+}
+
+.program-item .md-list-item-text h3, .program-item .md-list-item-text p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden; 
+}
+
+@media (min-width: 900px) {
+  .program-item {
+    float: left;
+    width: 33%; }
+}
+
+md-program-chips {
+  margin-bottom: 10px;
+}
+
+.md-chips {
+  padding: 5px 0 8px;
+}
+
+.fixedRows {
+  height: 250px;
+  overflow: hidden; 
+}
+
+.md-avatar{
+  resize: both;
+  
 }

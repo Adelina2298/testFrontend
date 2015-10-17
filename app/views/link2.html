@@ -4,3 +4,62 @@
 		<small> Tools </small> / Link2 
 	</div>
 </div>
+
+<div class="content-body">
+
+	<div class="text">
+		<i class="fa fa-external-link"></i>
+		<h2> Link2 2Performant </h2>
+		<div class="justify">
+			<li class="no-bullet"> If you have lots of links on your website that could be turned into affiliate links but it's just too much of a hassle to change them all by hand, don't worry! Link2 can easily change them for your visitors by just adding a little piece of code on the pages they're in. All you have to do is:</li>
+			<li> Choose which are the destinations/programs that you want to change links for (by default, all programs are selected).</li>
+			<li> Choose what type of transformation you want to apply to existing links. </li>
+			<li> Copy the embed code to your site. We recommend placing it just above the <code> &lt;/body&gt; </code> tag. You only have to do this once. </li>
+		</div>
+		<li class="no-bullet"> THAT'S IT! Enjoy having your visitors sent to the advertisers' sites with your tracking cookie already in place. </li>
+		<li class="no-bullet"> <b>Pro tip:</b> it's a pity not to use Link2 if you have a user-generated content site </li>
+	</div>
+
+	 
+	<md-content class="md-padding autocomplete" layout="column">
+	     <md-chips
+	     	 ng-model="programs"
+	     	 md-autocomplete-snap=""
+	     	 md-require-match="true">
+	     	 <md-autocomplete
+	     	 	 md-selected-item="selectedItem"
+	     	 	 md-search-text="searchText"
+	     	 	 md-items="item in querySearch(searchText)"
+	     	 	 md-item-text="item.name"
+	     	 	 placeholder="Search for a program"
+	     	 	 md-autoselect="true">
+	        	 <span md-highlight-text="searchText">{{item.name}}</span>
+		     </md-autocomplete>
+		     <md-chip-template>
+		       <span>
+		         <strong>{{$chip.name}}</strong>
+		       </span>
+		     </md-chip-template>
+	    </md-chips>
+
+	    <md-list class="fixedRows">
+	      <md-subheader class="md-no-sticky">Programs</md-subheader>
+	      <md-list-item class="md-2-line program-item" ng-repeat="(index, program) in allprograms"
+	          ng-if="program != undefined && programs.indexOf(program) < 0">
+	        <img ng-src="{{program.logo_path}}" class="md-avatar" alt="{{program.name}}" />
+	        <div class="md-list-item-text compact">
+	          <h3>{{program.name}}</h3>
+	          <a ng-href="{{program.main_url | trusted}}" target="_blank">{{program.main_url}}</a>
+	        </div>
+	      </md-list-item>
+	      <md-list-item class="md-2-line program-item selected" ng-repeat="(index, program) in programs">
+	        <img ng-src="{{program.logo_path}}" class="avatar" alt="{{program.name}}" />
+	        <div class="md-list-item-text compact">
+	          <h3>{{program.name}}</h3>
+	          <a ng-href="{{program.main_url | trusted}}" target="_blank"/>
+	        </div>
+	      </md-list-item>
+	    </md-list>
+	 </md-content>
+
+</div>

@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=PT+Sans'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel='stylesheet' href="bower_components/angular-material/angular-material.css"></script>
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-app="link2App">
@@ -33,7 +36,7 @@
               <li ui-sref-active="active"><a ui-sref="commissions"><i class="fa fa-eur fa-lg"></i>Commissions</a></li>
               <li ui-sref-active="active"><a ui-sref="statistics"><i class="fa fa-bar-chart"></i>Statistics</a></li>
               <li>
-                  <a href="#submenu" data-toggle="collapse" ng-click="$anchorScroll("#submenu");"><i class="fa fa-wrench"></i> Tools <i class="fa fa-caret-down right"></i></a>
+                  <a href="#submenu" data-toggle="collapse"><i class="fa fa-wrench"></i> Tools <i class="fa fa-caret-down right"></i></a>
                   <ul class="nav navbar-nav collapse" id="submenu">
                     <li ui-sref-active="active"><a ui-sref="link2">Link2</a></li> 
                     <li ui-sref-active="active"><a ui-sref="banners">Banners</a></li>
@@ -64,9 +67,12 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-base64/angular-base64.js"></script>
 
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/link2.js"></script>
+    <script src="scripts/services/link2.service.js"></script>
+    <script src="scripts/filters/trusted.filter.js"></script>
 </body>
 </html>
