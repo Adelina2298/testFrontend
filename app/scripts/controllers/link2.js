@@ -5,23 +5,7 @@ angular.module('link2App')
 
   		$scope.allprograms = [];
 	    $scope.programs = [];
-	    $scope.filterSelected = true;
 	    $scope.include = true;
-
-	    // Search for programs
-  		$scope.querySearch = function(query) {
-	      var results = query ?
-	          $scope.allprograms.filter(createFilterFor(query)) : [];
-	      return results;
-	    };
-
-	    // Create filter function for a query string
-	    function createFilterFor(query) {
-	      var lowercaseQuery = angular.lowercase(query);
-	      return function filterFn(programs) {
-	        return (programs.name.toLowerCase().indexOf(lowercaseQuery) != -1);
-	      };
-	    };
 
   		$scope.loadPrograms = function() {
 			Programs.getAll()
@@ -35,18 +19,17 @@ angular.module('link2App')
 
 	    $scope.loadPrograms();
 
-	    $scope.addProgram = function(program) {
-	    	$scope.programs.push(program);
-	    }
-
 	    $scope.convert = function() {
+	    	console.clear();
 	    	if ($scope.include) {
 	    		for (var i = 0; i < $scope.programs.length; i++) {
 	    			console.log($scope.programs[i].unique_code);
 	    		}
 	    	} else {
 	    		for (var i = 0; i < $scope.allprograms.length; i++) {
-	    			console.log("nustcesafac");
+	    			if($scope.programs.indexOf($scope.allprograms[i]) == -1){
+	    				console.log($scope.allprograms[i].unique_code);
+	    			}
 	    		}
 	    	}
 	    }

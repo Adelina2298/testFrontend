@@ -1,0 +1,34 @@
+<md-content layout="column">
+
+	 <md-chips ng-model="programs" md-require-match="true">
+	 	 <md-autocomplete
+	 	 	 md-selected-item="selectedItem"
+	 	 	 md-search-text="searchText"
+	 	 	 md-items="item in querySearch(searchText)"
+	 	 	 md-item-text="item.name"
+	 	 	 placeholder="Select programs"
+	 	 	 md-autoselect="true">
+	    	 <span md-highlight-text="searchText">{{item.name}}</span>
+	     </md-autocomplete>	
+	     <md-chip-template>
+	       <span>
+	         <strong>{{$chip.name}}</strong>
+	       </span>
+	     </md-chip-template>
+	</md-chips>
+
+	<md-list class="programs-list">
+	  <md-subheader class="md-no-sticky">Programs</md-subheader>
+
+	  <md-list-item class="md-2-line" ng-repeat="(index, program) in allprograms"
+	      			ng-if="program != undefined && programs.indexOf(program) < 0"
+	      			ng-click="addProgram(program)">
+	      <img ng-src="{{program.logo_path}}" class="program-logo" alt="{{program.name}}" />
+	   	  <div class="md-list-item-text program-name">
+	      <h3>{{program.name}}</h3>
+	      <a ng-href="{{program.main_url | trusted}}" class="program-link" target="_blank">{{program.main_url}}</a>
+	    </div>
+	  </md-list-item>
+	</md-list>
+
+</md-content>

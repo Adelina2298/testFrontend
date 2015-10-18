@@ -128,22 +128,8 @@ li.active a{
 
 .convert-button {
     margin-top: -0.1%; 
-    margin-left: 0;
-    padding: 0.7%;
+    margin-left: 2%;
     box-shadow:none !important;
-}
-
-.include-exclude-button {
-    padding-top: 1.4%;
-    padding-bottom: 1.4%;
-    background-color: #f6f8f8;
-}
-
-.include-exclude-button small,
-.include-exclude-button small:focus {
-    cursor: pointer;
-    outline: 0;
-    font-size: 15px;
 }
 
 .red {
