@@ -7,58 +7,113 @@ html, body {
 /******
  NAVBAR
  ******/
-li.active a{
-  color: white;
+ @media (max-width: 767px) {
+  .header {
+    height: 50px;
+    width: 100%;
+    background-color: black;
+  }
+
+  .my-navbar-brand {
+    padding: 0;
+  }
+
+  .my-navbar-menu {
+    position: relative;
+    top: -15%;
+    box-shadow: none;
+    overflow: hidden;
+    background-color: black !important;
+  }
+
+  .right {
+    float: right;
+  }
+
+  #submenu li{
+    padding-left: 5%;
+    margin-top: -1%;
+    margin-bottom: -1%;
+  }
+
+  .my-navbar-menu a {
+    background-color: black !important;
+    width: 100%;
+    color: #737373;
+    font-size: 15px;
+  }
+
+  li.active a{
+    color: white;
+  }
+
+  .my-navbar-menu a:hover {
+    color: white;
+  }
+
+  .my-navbar-menu i {
+    padding-right: 3%;
+  }
+
 }
 
-.left {
-  position: fixed;
-  height: 100%;
-  width: 12.5%;
-  background-color: black;
+@media (min-width: 768px) {
+    li.active a{
+      color: white;
+    }
+
+  .header {
+    position: fixed;
+    height: 100%;
+    width: 200px;
+    background-color: black;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .my-navbar-brand {
+    padding: 0;
+  }
+
+  .my-navbar-menu {
+    padding: 0;
+    width: 100%;
+    margin-top: 30%;
+  }
+
+  .my-navbar-menu li {
+    width: 100%;  
+    margin-bottom: -5%;
+  }
+
+  #submenu {
+    width: 85%;
+    float: right;
+    margin-top: -7%;
+    margin-bottom: 4%;
+  }
+
+  .my-navbar-menu a {
+    background-color: black !important;
+    width: 100%;
+    color: #737373;
+    font-size: 15px;
+  }
+
+  .my-navbar-menu a:hover {
+    color: white;
+  }
+
+  .my-navbar-menu i {
+    padding-right: 6%;
+  }
 }
 
-.right {
-  float: right;
-}
-
-.my-navbar-brand {
-  padding: 0;
-}
-
-.my-navbar-menu {
-  padding: 0;
-  width: 100%;
-  margin-top: 30%;
-}
-
-.my-navbar-menu li {
-  width: 100%;  
-  margin-bottom: -5%;
-}
-
-#submenu {
-  width: 85%;
-  float: right;
-  margin-top: -7%;
-  margin-bottom: 4%;
-}
-
-.my-navbar-menu a {
-  background-color: black !important;
-  width: 100%;
-  color: #737373;
-  font-size: 15px;
-}
-
-.my-navbar-menu a:hover {
-  color: white;
-}
-
-.my-navbar-menu i {
-  padding-right: 6%;
-}
-
+/******
+  LINK2
+ ******/
 .content-header {
   height: 5em;
   background-color: #f6f8f8;
@@ -77,16 +132,14 @@ li.active a{
   color: #999a9b;
 }
 
-.container {
-  width: 87.5%;
-  float: right;
-  padding: 0;
+@media (min-width: 768px) {
+  .container {
+    width: 100%;
+    padding-left: 200px;
+    padding-right: 0;
+  }
 }
 
-
-/******
-  LINK2
- ******/
  .content-body {
     width: 100%;
     padding-top: 3%;

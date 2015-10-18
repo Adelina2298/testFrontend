@@ -13,6 +13,12 @@ angular
     'ngMaterial',
     'base64'
   ])
+  .run(function($rootScope, $location, $anchorScroll, $routeParams) {
+      $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
+        $location.hash($routeParams.scrollTo);
+        $anchorScroll();  
+    });
+  })
   .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     //enable CSRF
     $httpProvider.defaults.xsrfCookieName= 'CSRF-TOKEN';
