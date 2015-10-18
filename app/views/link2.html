@@ -21,45 +21,52 @@
 	</div>
 
 	 
-	<md-content class="md-padding autocomplete" layout="column">
-	     <md-chips
-	     	 ng-model="programs"
-	     	 md-autocomplete-snap=""
-	     	 md-require-match="true">
-	     	 <md-autocomplete
-	     	 	 md-selected-item="selectedItem"
-	     	 	 md-search-text="searchText"
-	     	 	 md-items="item in querySearch(searchText)"
-	     	 	 md-item-text="item.name"
-	     	 	 placeholder="Search for a program"
-	     	 	 md-autoselect="true">
-	        	 <span md-highlight-text="searchText">{{item.name}}</span>
-		     </md-autocomplete>
-		     <md-chip-template>
-		       <span>
-		         <strong>{{$chip.name}}</strong>
-		       </span>
-		     </md-chip-template>
-	    </md-chips>
+	 <div class="programs row">
 
-	    <md-list class="fixedRows">
-	      <md-subheader class="md-no-sticky">Programs</md-subheader>
-	      <md-list-item class="md-2-line program-item" ng-repeat="(index, program) in allprograms"
-	          ng-if="program != undefined && programs.indexOf(program) < 0">
-	        <img ng-src="{{program.logo_path}}" class="md-avatar" alt="{{program.name}}" />
-	        <div class="md-list-item-text compact">
-	          <h3>{{program.name}}</h3>
-	          <a ng-href="{{program.main_url | trusted}}" target="_blank">{{program.main_url}}</a>
-	        </div>
-	      </md-list-item>
-	      <md-list-item class="md-2-line program-item selected" ng-repeat="(index, program) in programs">
-	        <img ng-src="{{program.logo_path}}" class="avatar" alt="{{program.name}}" />
-	        <div class="md-list-item-text compact">
-	          <h3>{{program.name}}</h3>
-	          <a ng-href="{{program.main_url | trusted}}" target="_blank"/>
-	        </div>
-	      </md-list-item>
-	    </md-list>
-	 </md-content>
+	 	 <div class="md-primary include-exclude-button col-md-2">
+	 	 	<small ng-class='{"red" : include === true}' ng-click="include = true"> Include </small>
+	 	 	/
+	 	 	<small ng-class='{"red" : include === false}' ng-click="include = false"> Exclude </small>
+	 	 </div>
+
+		 <md-content class="col-md-8" layout="column">
+		     <md-chips
+		     	 ng-model="programs"
+		     	 md-require-match="true">
+		     	 <md-autocomplete
+		     	 	 md-selected-item="selectedItem"
+		     	 	 md-search-text="searchText"
+		     	 	 md-items="item in querySearch(searchText)"
+		     	 	 md-item-text="item.name"
+		     	 	 placeholder="Select programs"
+		     	 	 md-autoselect="true">
+		        	 <span md-highlight-text="searchText">{{item.name}}</span>
+			     </md-autocomplete>	
+			     <md-chip-template>
+			       <span>
+			         <strong>{{$chip.name}}</strong>
+			       </span>
+			     </md-chip-template>
+		    </md-chips>
+
+		    <md-list class="programs-list">
+		      <md-subheader class="md-no-sticky">Programs</md-subheader>
+
+		      <md-list-item class="md-2-line" ng-repeat="(index, program) in allprograms"
+		          			ng-if="program != undefined && programs.indexOf(program) < 0"
+		          			ng-click="addProgram(program)">
+		        <img ng-src="{{program.logo_path}}" class="program-logo" alt="{{program.name}}" />
+		        <div class="md-list-item-text program-name">
+		          <h3>{{program.name}}</h3>
+		          <a ng-href="{{program.main_url | trusted}}" class="program-link" target="_blank">{{program.main_url}}</a>
+		        </div>
+		      </md-list-item>
+
+		    </md-list>
+
+		 </md-content>
+
+		 <md-button class="md-raised md-warn convert-button col-md-1" ng-click="convert()">Convert</md-button>
+	 </div>
 
 </div>
