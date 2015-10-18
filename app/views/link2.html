@@ -1,37 +1,45 @@
-<div class="content-header">
-	<div>
-		<i class="fa fa-wrench"></i>
-		<small> Tools </small> / Link2 
-	</div>
-</div>
-
-<div class="content-body">
-
-	<div class="text">
-		<i class="fa fa-external-link"></i>
-		<h2> Link2 2Performant </h2>
-		<div class="justify">
-			<li class="no-bullet"> If you have lots of links on your website that could be turned into affiliate links but it's just too much of a hassle to change them all by hand, don't worry! Link2 can easily change them for your visitors by just adding a little piece of code on the pages they're in. All you have to do is:</li>
-			<li> Choose which are the destinations/programs that you want to change links for (by default, all programs are selected).</li>
-			<li> Choose what type of transformation you want to apply to existing links. </li>
-			<li> Copy the embed code to your site. We recommend placing it just above the <code> &lt;/body&gt; </code> tag. You only have to do this once. </li>
+<div ng-cloak>
+	<div class="content-header">
+		<div>
+			<i class="fa fa-wrench"></i>
+			<small> Tools </small> / Link2 
 		</div>
-		<li class="no-bullet"> THAT'S IT! Enjoy having your visitors sent to the advertisers' sites with your tracking cookie already in place. </li>
-		<li class="no-bullet"> <b>Pro tip:</b> it's a pity not to use Link2 if you have a user-generated content site </li>
 	</div>
 
-	 
-	 <div class="programs row">
+	<div class="content-body">
 
-	 	<div class="btn-group col-md-2">
-          <button type="button" class="btn btn-default" ng-class='{"active" : include === true}' ng-click="include = true" btn-radio="'day'">Include</button>
-          <button type="button" class="btn btn-default" ng-class='{"active" : include === false}' ng-click="include = false" btn-radio="'month'">Exclude</button>
-        </div>
+		<div class="text">
+			<i class="fa fa-external-link"></i>
+			<h2> Link2 2Performant </h2>
+			<div class="justify">
+				<li class="no-bullet"> If you have lots of links on your website that could be turned into affiliate links but it's just too much of a hassle to change them all by hand, don't worry! Link2 can easily change them for your visitors by just adding a little piece of code on the pages they're in. All you have to do is:</li>
+				<li> Choose which are the destinations/programs that you want to change links for (by default, all programs are selected).</li>
+				<li> Choose what type of transformation you want to apply to existing links. </li>
+				<li> Copy the embed code to your site. We recommend placing it just above the <code> &lt;/body&gt; </code> tag. You only have to do this once. </li>
+			</div>
+			<li class="no-bullet"> THAT'S IT! Enjoy having your visitors sent to the advertisers' sites with your tracking cookie already in place. </li>
+			<li class="no-bullet"> <b>Pro tip:</b> it's a pity not to use Link2 if you have a user-generated content site </li>
+		</div>
 
-		 <programs-selector class="col-md-8" allprograms="allprograms" programs="programs"></programs-selector>
+		 
+		 <div class="programs row">
 
-		 <md-button class="md-raised md-warn convert-button col-md-1" ng-click="convert()">Convert</md-button>
+		 	<div class="btn-group col-md-2">
+	          <button type="button" class="btn btn-default" ng-class='{"active" : include === true}' ng-click="include = true" btn-radio="'day'">Include</button>
+	          <button type="button" class="btn btn-default" ng-class='{"active" : include === false}' ng-click="include = false" btn-radio="'month'">Exclude</button>
+	        </div>
 
-	 </div>
+			 <programs-selector 
+			        class="col-md-8"
+ 					allprograms="allprograms"
+ 					programs="programs"
+ 					page="page"
+ 					load-programs="loadPrograms(page)">
+			 </programs-selector>
 
+			 <md-button class="md-raised md-warn convert-button col-md-1" ng-click="convert()">Convert</md-button>
+
+		 </div>
+
+	</div>
 </div>

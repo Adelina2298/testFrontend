@@ -6,11 +6,16 @@ angular.module('link2App')
   		$scope.allprograms = [];
 	    $scope.programs = [];
 	    $scope.include = true;
+	    $scope.page = 1;
 
   		$scope.loadPrograms = function() {
-			Programs.getAll()
+			Programs.getPage($scope.page)
 				.success(function(data){
-                    $scope.allprograms = data.campaigns;
+                    $scope.allprograms.push.apply($scope.allprograms, data.campaigns);
+					$scope.page++;
+                    if(data.pagination.pages < $scope.page){
+                    	$scope.page = -1;
+                    }
                 })
                 .error(function(){
                     alert('There has been an error. Please try again later!');

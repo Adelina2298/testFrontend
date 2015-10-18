@@ -5,7 +5,9 @@ angular.module('link2App')
 		return {
 			scope: {
 				allprograms: '=',
-				programs: '='
+				programs: '=',
+				page: '=',
+				loadPrograms: '&loadPrograms'
 			},			
 			restrict: 'AE',
 			templateUrl: 'views/programs_selector.html',
