@@ -6,7 +6,7 @@
 	 	 	 md-search-text="searchText"
 	 	 	 md-items="item in querySearch(searchText)"
 	 	 	 md-item-text="item.name"
-	 	 	 placeholder="Select programs"
+	 	 	 placeholder="Target programs"
 	 	 	 md-autoselect="true">
 	    	 <span md-highlight-text="searchText">{{item.name}}</span>
 	     </md-autocomplete>	
@@ -29,6 +29,5 @@
 	      <a ng-href="{{program.main_url | trusted}}" class="program-link" target="_blank">{{program.main_url}}</a>
 	    </div>
 	  </md-list-item>
-	  <md-button ng-click="loadPrograms()" ng-show="page != -1">Load more data</md-button>
 	</md-list>
 </md-content>
