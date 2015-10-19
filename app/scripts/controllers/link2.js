@@ -6,21 +6,38 @@ angular.module('link2App')
   		$scope.allprograms = [];
 	    $scope.programs = [];
 	    $scope.include = true;
+	    $scope.page = 1;
 
-	    Programs.getPageNo()
-	    	.success(function(data){
-	    		$scope.pageNo = data.pagination.results;
-	    		Programs.getAll($scope.pageNo)
-		    		.success(function(data){
-		    			$scope.allprograms = data.campaigns;
-		    		})
-		    		.error(function(data){
-		    			alert('There has been an error. Please try again later!');
-		    		})
-	    	})
-	    	.error(function(){
-				alert('There has been an error. Please try again later!');
-	    	});
+	   //  Programs.getPageNo()
+	   //  	.success(function(data){
+	   //  		$scope.pageNo = data.pagination.results;
+	   //  		Programs.getAll($scope.pageNo)
+		  //   		.success(function(data){
+		  //   			$scope.allprograms = data.campaigns;
+		  //   		})
+		  //   		.error(function(data){
+		  //   			alert('There has been an error. Please try again later!');
+		  //   		})
+	   //  	})
+	   //  	.error(function(){
+				// alert('There has been an error. Please try again later!');
+	   //  	});
+
+	   	$scope.loadPrograms = function() {
+	   		Programs.getPage($scope.page)
+	   		.success(function(data) {
+	   			$scope.allprograms.push.apply($scope.allprograms, data.campaigns);
+	   			$scope.page++;
+	   			if(data.pagination.pages < $scope.page) {
+	   				$scope.page = -1;
+	   			} 
+	   		})
+	   		.error(function(data){
+	   			alert('There has been an error. Please try again later!');
+	   		});
+	   	}
+
+	   	$scope.loadPrograms();
 
 	  //   $scope.loadPage = function(page) {
 	  //   	var promise = Programs.getPage(page);

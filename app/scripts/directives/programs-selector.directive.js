@@ -1,24 +1,51 @@
 'use strict';
 
 angular.module('link2App')
-	.directive('programsSelector', function (){
+	.directive('programsSelector', function ($timeout, Programs){
 		return {
 			scope: {
 				allprograms: '=',
-				programs: '='
+				programs: '=',
+				page: '=',
+				loadPrograms: '&'
 			},			
 			restrict: 'AE',
 			templateUrl: 'views/programs_selector.html',
 			link: function (scope, element, attrs) {
 
 	    		scope.filterSelected = true;
+	    		var pauseMonitor;
 
 			    // Search for programs
-		  		scope.querySearch = function(query) {
-			      var results = query ?
-			          scope.allprograms.filter(createFilterFor(query)) : [];
-			      return results;
-			    };
+		  		// scope.querySearch = function(query) {
+		  		// 	if (typeof pauseMonitor !== 'undefined') {
+				  //       $timeout.cancel(pauseMonitor); 
+				  //   }
+
+			   //   	pauseMonitor = $timeout(function() {
+			   //    		Programs.getQuery(query)
+			   //    		.then(function(data){
+			   //    			return data.data.campaigns;
+			   //    		});
+			   //   	}, 250);
+
+			   //  };
+
+			    // Search for programs
+				scope.querySearch = function(query) {
+				    if (typeof pauseMonitor !== 'undefined') {
+				        $timeout.cancel(pauseMonitor); 
+				    }
+
+				    pauseMonitor = $timeout(function() {
+				        return Programs.getQuery(query)
+				        .then(function(data){
+				            return data.data.campaigns;
+				        });
+				    }, 0);
+
+				    return pauseMonitor;
+				};
 
 			    // Create filter function for a query string
 			    function createFilterFor(query) {

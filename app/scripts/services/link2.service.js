@@ -11,7 +11,19 @@ angular.module('link2App')
   			return $http.get('https://api.2performant.com/affiliate/campaigns.json',
   				 	  {params: {perpage: allpages},
   				 	   headers: {'Authorization': 'Basic '+ $base64.encode('85@2parale.com:123456')}});
-		}
+		},
+		getPage: function(page) {
+			return $http.get('https://api.2performant.com/affiliate/campaigns.json',
+  				 	  {params: {page: page},
+  				 	   headers: {'Authorization': 'Basic '+ $base64.encode('85@2parale.com:123456')}});
+		},
+		getQuery: function(query) {
+			return $http.get('https://api.2performant.com/affiliate/campaigns.json?filter%5Bquery%5D=' + query,
+			 	        {headers: {'Authorization': 'Basic '+ $base64.encode('85@2parale.com:123456')}});
+
+      	}
+	}
+
   		// getPage: function(page){
   		// 	var promise = $http.get('https://api.2performant.com/affiliate/campaigns.json',
   		// 							{params: {page: page},
@@ -29,5 +41,4 @@ angular.module('link2App')
   		// 	return defer.promise;
 
   		// }
-  	};
- });	
+  });
