@@ -10,8 +10,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.router',
-    'ngMaterial',
-    'base64'
+    'base64',
+    'ngTagsInput'
   ])
   .run(function($rootScope, $location, $anchorScroll, $routeParams) {
       $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {

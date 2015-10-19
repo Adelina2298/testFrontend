@@ -25,21 +25,37 @@
 		 <div class="programs row">
 
 		 	<div class="btn-group col-md-2">
-	          <button type="button" class="btn btn-default" ng-class='{"active" : include === true}' ng-click="include = true" btn-radio="'day'">Include</button>
-	          <button type="button" class="btn btn-default" ng-class='{"active" : include === false}' ng-click="include = false" btn-radio="'month'">Exclude</button>
-	        </div>
+	          <button type="button" class="btn btn-default" ng-class='{"active" : include === true}' ng-click="include = true">Include</button>
+	          <button type="button" class="btn btn-default" ng-class='{"active" : include === false}' ng-click="include = false">Exclude</button>
+	    </div>
 
-			 <programs-selector 
-			        class="col-md-8"
- 					allprograms="allprograms"
- 					programs="programs"
- 					page="page"
- 					load-programs="loadPrograms()">
-			 </programs-selector>
+			 <tags-input class="selector col-md-8"
+			 						 ng-model="programs"
+			 						 display-property="name"
+			 						 placeholder="Target programs"
+			 						 add-from-autocomplete-only="true">
+        	<auto-complete source="filter($query)"
+  								 displayProperty="name"
+  								 min-length="1"
+  								 debounce-delay="200"
+  								 max-results="15"
+  								 template="autocomplete-template"></auto-complete>
+    	 </tags-input>
 
-			 <md-button class="md-raised md-warn convert-button col-md-1" ng-click="convert()">Convert</md-button>
+			 <button class="btn btn-danger convert-button col-md-1" ng-click="convert()">Convert</button>
 
-		 </div>
+		</div>
 
 	</div>
 </div>
+
+<script type="text/ng-template" id="autocomplete-template">
+  <div class="autocomplete-template">
+    <div class="left-panel">
+      <img ng-src="{{data.logo_path}}" class="program-logo" alt="{{data.name}}"/>
+    </div>
+    <div class="right-panel">
+      <span ng-bind-html="$highlight($getDisplayText())"></span>
+    </div>
+  </div>
+</script>
