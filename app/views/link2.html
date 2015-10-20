@@ -22,11 +22,11 @@
 		</div>
 
 		 
-		 <div class="programs row">
+		 <div class="target-row row">
 
-		 	<div class="btn-group col-md-2">
-	          <button type="button" class="btn btn-default" ng-class='{"active" : include === true}' ng-click="include = true">Include</button>
+		 	<div class="include-exclude btn-group col-md-2">
 	          <button type="button" class="btn btn-default" ng-class='{"active" : include === false}' ng-click="include = false">Exclude</button>
+	          <button type="button" class="btn btn-default" ng-class='{"active" : include === true}' ng-click="include = true">Include</button>
 	    </div>
 
 			 <tags-input class="selector col-md-8"
@@ -42,7 +42,7 @@
   								 template="autocomplete-template"></auto-complete>
     	 </tags-input>
 
-			 <button class="btn btn-danger convert-button col-md-1" ng-click="convert()">Convert</button>
+			 <button class="btn btn-danger convert-button col-md-2" ng-click="convert()">Convert</button>
 
 		</div>
 
