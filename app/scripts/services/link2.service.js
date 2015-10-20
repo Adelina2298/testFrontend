@@ -5,7 +5,7 @@ angular.module('link2App')
   	return {
       getQuery: function(query) {
         var defer = $q.defer();
-        var promise = $http.get('https://api.2performant.com/affiliate/campaigns.json?filter%5Bquery%5D=' + query,
+        var promise = $http.get('https://api.2performant.com/affiliate/campaigns.json?perpage=30&filter%5Bquery%5D=' + query,
                          {headers: {'Authorization': 'Basic '+ $base64.encode('85@2parale.com:123456')}});
         promise.then(
            function(data){
